@@ -1819,6 +1819,7 @@
             <div class="tab-nav" id="radioTabNav">
               <button class="tab-btn active" data-category="all">Todas</button>
               <button class="tab-btn" data-category="ce">Ceará</button>
+              <button class="tab-btn" data-category="ma">Maranhão</button>
               <button class="tab-btn" data-category="mg">Minas Gerais</button>
               <button class="tab-btn" data-category="pa">Pará</button>
               <button class="tab-btn" data-category="pi">Piauí</button>
@@ -2131,7 +2132,7 @@
         this.favoritesList = new Map(); // Cache for favorites display
         this.config = {
           server: 'http://c.maintech.top',
-          githubRawUrl: 'https://raw.githubusercontent.com/CaioCon/radiosiptvplayer/refs/heads/main/R%C3%A1dios', // INSIRA AQUI A URL DO GITHUB RAW PARA CARREGAR RÁDIOS EXTRAS
+          githubRawUrl: 'https://raw.githubusercontent.com/CaioCon/radiosiptvplayer/refs/heads/main/Rádios', // INSIRA AQUI A URL DO GITHUB RAW PARA CARREGAR RÁDIOS EXTRAS
           username: 'IPTVBR',
           password: 'IPTVBR'
         };
@@ -2142,78 +2143,6 @@
       async initRadios() {
         // Rádios padrão
         this.radios = [
-          {
-            id: 'jovem_pan',
-            name: 'Rádio Jovem Pan 100.9 FM',
-            type: 'radio',
-            url: 'https://stream-168.zeno.fm/c45wbq2us3buv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJjNDV3YnEydXMzYnV2IiwiaG9zdCI6InN0cmVhbS0xNjguemVuby5mbSIsInJ0dGwiOjUsImp0aSI6Ik9LZER3SmFWVG02eDJNS3g1M2JyZ1EiLCJpYXQiOjE3NTA2NDQ0OTIsImV4cCI6MTc1MDY0NDU1Mn0.OuqGpch5zeJ1VonTyvCCiIYjXP5584aqX5jXvGOeXbo',
-            icon: 'https://img.radios.com.br/radio/lg/radio8829_1708517690.png',
-            city: 'São Paulo',
-            state: 'SP',
-            category: 'sp',
-            frequency: '100.9 FM',
-            letter: 'J'
-          },
-          {
-            id: 'radio_mix',
-            name: 'Rádio Mix 107.9 FM',
-            type: 'radio',
-            url: 'https://24233.live.streamtheworld.com:443/MIXFM_SAOPAULOAAC.aac',
-            icon: 'https://img.radios.com.br/radio/lg/radio217985_1701706636.png',
-            city: 'São José Do Rio Preto',
-            state: 'SP',
-            category: 'sp',
-            frequency: '107.9 FM',
-            letter: 'M'
-          },
-          {
-            id: 'hot_fm',
-            name: 'Rádio Hot 107 FM',
-            type: 'radio',
-            url: 'https://9772.brasilstream.com.br/stream',
-            icon: 'https://img.radios.com.br/radio/lg/radio8760_1565178044.png',
-            city: 'São Paulo',
-            state: 'SP',
-            category: 'sp',
-            frequency: '107 FM',
-            letter: 'H'
-          },
-          {
-            id: 'jangadeiro_ce',
-            name: 'Rádio Jangadeiro 88.9 FM',
-            type: 'radio',
-            url: 'https://fmfortaleza.jmvstream.com/FMFortaleza_live?type=.flv',
-            icon: 'https://img.radios.com.br/radio/lg/radio13520_1692020159.png',
-            city: 'Fortaleza',
-            state: 'CE',
-            category: 'ce',
-            frequency: '88.9 FM',
-            letter: 'J'
-          },
-          {
-            id: 'somzoom_sat',
-            name: 'Rádio SomZoom Sat',
-            type: 'radio',
-            url: 'http://str.7br.com.br:8060/stream',
-            icon: 'https://img.radios.com.br/radio/lg/radio42319_1738566104.jpeg',
-            city: 'Fortaleza',
-            state: 'CE',
-            category: 'ce',
-            frequency: '',
-            letter: 'S'
-          },
-          {
-            id: 'bh_fm',
-            name: 'Rádio BH FM 102.1',
-            type: 'radio',
-            url: 'https://27403.live.streamtheworld.com:443/BHFMAAC.aac?dist=radioscombr',
-            icon: 'https://img.radios.com.br/radio/lg/radio8813_1622543620.png',
-            city: 'Belo Horizonte',
-            state: 'MG',
-            category: 'mg',
-            frequency: '102.1',
-            letter: 'B'
-          },
           {
             id: 'globo_rj',
             name: 'Rádio Globo RJ 98.1 FM',
@@ -2239,42 +2168,6 @@
             letter: 'C'
           },
           {
-            id: 'antena1',
-            name: 'Antena 1 94.7 FM',
-            type: 'radio',
-            url: 'https://antenaone.crossradio.com.br/stream/1;',
-            icon: 'https://img.radios.com.br/radio/lg/radio9505_1574106966.jpg',
-            city: 'São Paulo',
-            state: 'SP',
-            category: 'sp',
-            frequency: '94.7 FM',
-            letter: 'A'
-          },
-          {
-            id: 'radio_transamerica',
-            name: 'Rádio Transamérica 100.1 FM',
-            type: 'radio',
-            url: 'https://26663.live.streamtheworld.com:443/RT_SP.mp3',
-            icon: 'https://img.radios.com.br/radio/lg/radio8803_1578516680.png',
-            city: 'São Paulo',
-            state: 'SP',
-            category: 'sp',
-            frequency: '100.1 FM',
-            letter: 'T'
-          },
-          {
-            id: 'radio_lideranca',
-            name: 'Rádio Liderança FM',
-            type: 'radio',
-            url: 'https://webradio.amsolution.com.br/radio/8320/lideranca',
-            icon: 'https://img.radios.com.br/radio/lg/radio13690_1510752146.jpg',
-            city: 'Fortaleza',
-            state: 'CE',
-            category: 'ce',
-            frequency: '',
-            letter: 'L'
-          },
-          {
             id: 'fm_o_dia',
             name: 'Rádio FM O Dia 100.5',
             type: 'radio',
@@ -2285,43 +2178,7 @@
             category: 'rj',
             frequency: '103.3 FM',
             letter: 'O'
-          },
-          {
-            id: 'cidade_fm',
-            name: 'Rádio Cidade 99.1 FM',
-            type: 'radio',
-            url: 'https://streaming.livespanel.com:9910/stream',
-            icon: 'https://img.radios.com.br/radio/lg/radio11435_1713540627.png',
-            city: 'Fortaleza',
-            state: 'CE',
-            category: 'ce',
-            frequency: '99.1 FM',
-            letter: 'O'
-          },
-          {
-            id: 'fm_93',
-            name: 'Rádio 93 FM',
-            type: 'radio',
-            url: 'https://jvcs2dtro0.zoeweb.tv/fm93/stream/chunklist_w518906299.m3u8',
-            icon: 'https://img.radios.com.br/radio/lg/radio107_1664371637.png',
-            city: 'Fortaleza',  
-            state: 'CE',
-            category: 'ce',
-            frequency: '93',
-            letter: 'R'
-          },
-          {
-            id: 'verdinha',
-            name: 'Rádio Verdinha 92.5 FM',
-            type: 'radio',
-            url: 'https://5a1c76baf08c0.streamlock.net/z18-live/stream/chunklist.m3u8',
-            icon: 'https://img.radios.com.br/radio/lg/radio14216_1680528339.jpg',
-            city: 'Fortaleza',
-            state: 'CE',
-            category: 'ce',
-            frequency: '92.5 FM',
-            letter: 'V'
-          }
+          }          
         ];
         
         // NOVA FUNCIONALIDADE: Carregar rádios extras do GitHub RAW
