@@ -1604,10 +1604,10 @@
   <meta property="og:title" content="IPTV Player v9 — Player IPTV no Navegador" />
   <meta property="og:description" content="Assista listas IPTV direto no navegador com o IPTV Player v9. Rápido, seguro e fácil de usar." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/iptv-player-v7.html" />
+  <meta property="og:url" - />
   <meta property="og:image" content="/favicon.ico" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="IPTV Player v9 — Player IPTV no Navegador" />
+  <meta name="twitter:title" content="IPTV Player vd. m9 — Player IPTV no Navegador" />
   <meta name="twitter:description" content="Assista listas IPTV direto no navegador com o IPTV Player v9. Rápido, seguro e fácil de usar." />
   <meta name="theme-color" content="#00A848" />
 
@@ -2141,44 +2141,79 @@
       }
 
       async initRadios() {
-        // Rádios padrão
+        // Rádios organizadas por estado - CEARÁ
+        const radiosCeara = [
+          
+        ];
+
+        // Rádios organizadas por estado - MARANHÃO
+        const radiosMaranhao = [
+          
+        ];
+
+        // Rádios organizadas por estado - PARÁ
+        const radiosPara = [
+          
+        ];
+        
+        // Rádios organizadas por estado - Rio De Janeiro
+        const radiosRioDeJaneiro = [
+        {
+          id: 'globo_rj',
+          name: 'Rádio Globo RJ 98.1 FM',
+          type: 'radio',
+          url: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_GLOBO_RJ.mp3',
+          icon: 'https://img.radios.com.br/radio/md/radio8817_1676300226.png',
+          city: 'Rio De Janeiro',
+          state: 'RJ',
+          category: 'rj',
+          frequency: '98.1 FM',
+          letter: 'G'
+        },
+        {
+          id: 'cbn_rj',
+          name: 'CBN Rio de Janeiro 92.5 FM',
+          type: 'radio',
+          url: 'https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ.mp3',
+          icon: 'https://img.radios.com.br/radio/md/radio8819_1573682766.jpg',
+          city: 'Rio De Janeiro',
+          state: 'RJ',
+          category: 'rj',
+          frequency: '92.5 FM',
+          letter: 'C'
+        },
+        {
+          id: 'radiofmodia1005',
+          name: 'FM O Dia 100.5',
+          type: 'radio',
+          url: 'https://streaming.livespanel.com:8016/fmodia',
+          icon: 'https://img.radios.com.br/radio/lg/radio13213_1705409045.jpeg',
+          city: 'Rio De Janeiro',
+          state: 'RJ',
+          category: 'rj',
+          frequency: '100.5 FM',
+          letter: 'F'
+        }
+      ];
+
+        // Rádios organizadas por estado - SÃO PAULO
+        const radiosSaoPaulo = [
+          
+        ];
+
+        // Rádios organizadas por estado - MINAS GERAIS
+        const radiosMinasGerais = [
+          
+        ];
+
+        // Combinar todas as rádios organizadas por estado
         this.radios = [
-          {
-            id: 'globo_rj',
-            name: 'Rádio Globo RJ 98.1 FM',
-            type: 'radio',
-            url: 'https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_GLOBO_RJ.mp3',
-            icon: 'https://img.radios.com.br/radio/md/radio8817_1676300226.png',
-            city: 'Rio De Janeiro',
-            state: 'RJ',
-            category: 'rj',
-            frequency: '98.1 FM',
-            letter: 'G'
-          },
-          {
-            id: 'cbn_rj',
-            name: 'CBN Rio de Janeiro 92.5 FM',
-            type: 'radio',
-            url: 'https://playerservices.streamtheworld.com/api/livestream-redirect/CBN_RJ.mp3',
-            icon: 'https://img.radios.com.br/radio/md/radio8819_1573682766.jpg',
-            city: 'Rio De Janeiro',
-            state: 'RJ',
-            category: 'rj',
-            frequency: '92.5 FM',
-            letter: 'C'
-          },
-          {
-            id: 'fm_o_dia',
-            name: 'Rádio FM O Dia 100.5',
-            type: 'radio',
-            url: 'https://streaming.livespanel.com:8016/fmodia',
-            icon: 'https://img.radios.com.br/radio/lg/radio13213_1705409045.jpeg',
-            city: 'Rio De Janeiro',
-            state: 'RJ',
-            category: 'rj',
-            frequency: '103.3 FM',
-            letter: 'O'
-          }          
+          ...radiosCeara,
+          ...radiosMaranhao, 
+          ...radiosPara,
+          ...radiosSaoPaulo,
+          ...radiosRioDeJaneiro,
+          ...radiosMinasGerais
         ];
         
         // NOVA FUNCIONALIDADE: Carregar rádios extras do GitHub RAW
@@ -2974,8 +3009,13 @@
           return;
         }
 
+        // Organizar rádios alfabeticamente por nome
+        const sortedRadios = filteredRadios.sort((a, b) => {
+          return a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' });
+        });
+
         radioList.innerHTML = '';
-        filteredRadios.forEach(radio => {
+        sortedRadios.forEach(radio => {
           const item = this.createContentItem(radio, 'radio');
           radioList.appendChild(item);
         });
